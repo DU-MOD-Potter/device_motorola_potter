@@ -183,7 +183,7 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/configs/compatibility_matrix.xml
 
 # Media
-# TARGET_USES_MEDIA_EXTENSIONS := true
+ TARGET_USES_MEDIA_EXTENSIONS := true
 
 PRODUCT_BOOT_JARS += telephony-ext
 
@@ -239,6 +239,10 @@ MOT_SENSOR_HUB_FEATURE_LA := true
 MOT_SENSOR_HUB_FEATURE_GR := true
 TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/doubletap2wake"
 
+ # Shim
+ TARGET_LD_SHIM_LIBS := \
+     /system/vendor/bin/adspd|libshim_adsp.so \
+     /system/vendor/lib64/libmdmcutback.so|libqsap_shim.so
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
@@ -251,4 +255,5 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_P2P          := "p2p"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
+
 
